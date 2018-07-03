@@ -1,11 +1,14 @@
 from setup import *
+from nltk.tokenize import sent_tokenize, word_tokenize
 
 def getTweets():
     results = filterTweets("#amzn")
     return results
     
-tweetResults = getTweets()    
-print("5 recent tweets:\n")
-for tweet in tweetResults:
-    print(tweet.text)
-    print()
+def preprocessTweets():
+    tweetResults = getTweets()    
+
+    for tweet in tweetResults:
+        print(word_tokenize(str(tweet)))
+
+preprocessTweets()
